@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
 
 :root {
-  --primary-color: #22254b;
-  --secondary-color: #373b69;
+  --primary-color: #4d0000;
+  --secondary-color: #610101;
 }
 
 * {
@@ -23,6 +23,7 @@ header {
   background-color: var(--secondary-color);
   gap: 2rem;
   position: relative;
+  z-index: 1000;
 }
 
 .logo {
@@ -44,7 +45,7 @@ header {
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 10;
+  z-index: 1001;
 }
 
 .mobile-menu-btn span {
@@ -116,7 +117,7 @@ header {
 }
 
 .search::placeholder {
-  color: #7378c5;
+  color: #fff;
 }
 
 .search:focus {
@@ -221,6 +222,8 @@ main {
     padding: 80px 20px 20px;
     transition: right 0.3s ease;
     gap: 2rem;
+    z-index: 999;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
   }
 
   .nav-links.active {
@@ -232,6 +235,7 @@ main {
     display: none;
     box-shadow: none;
     padding-left: 1rem;
+    background-color: var(--primary-color);
   }
 
   .dropdown.active .dropdown-content {
@@ -253,6 +257,18 @@ main {
   .search {
     width: 150px;
   }
+
+  /* Add overlay when menu is active */
+  .nav-links.active::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -262,5 +278,74 @@ main {
 
   .search {
     width: 120px;
+  }
+}
+
+.footer {
+  background-color: var(--secondary-color);
+  padding: 2rem 0;
+  margin-top: 2rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.social-link {
+  color: #fff;
+  font-size: 1.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-link:hover {
+  color: #7378c5;
+  transform: translateY(-3px);
+}
+
+.copyright {
+  color: #fff;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 0;
+  }
+
+  .social-links {
+    gap: 1rem;
+  }
+
+  .social-link {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    padding: 1rem 0;
+  }
+
+  .social-links {
+    gap: 0.8rem;
+  }
+
+  .social-link {
+    font-size: 1.2rem;
+  }
+
+  .copyright {
+    font-size: 0.8rem;
   }
 }
