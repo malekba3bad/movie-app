@@ -6,7 +6,7 @@ const main = document.getElementById('main')
 const form = document.getElementById('form')
 const search = document.getElementById('search')
 
-// Get initial movies
+
 getMovies(API_URL)
 
 async function getMovies(url) {
@@ -64,7 +64,7 @@ form.addEventListener('submit', (e) => {
     }
 })
 
-// Mobile menu functionality
+
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const navLinks = document.querySelector('.nav-links');
 const dropdowns = document.querySelectorAll('.dropdown');
@@ -74,7 +74,7 @@ mobileMenuBtn.addEventListener('click', () => {
   navLinks.classList.toggle('active');
 });
 
-// Handle dropdowns in mobile view
+
 dropdowns.forEach(dropdown => {
   const link = dropdown.querySelector('.nav-link');
   link.addEventListener('click', (e) => {
@@ -85,7 +85,7 @@ dropdowns.forEach(dropdown => {
   });
 });
 
-// Close mobile menu when clicking outside
+
 document.addEventListener('click', (e) => {
   if (!e.target.closest('.nav-links') && !e.target.closest('.mobile-menu-btn')) {
     mobileMenuBtn.classList.remove('active');
